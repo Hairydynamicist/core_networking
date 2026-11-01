@@ -37,10 +37,10 @@ session.add_link(n2.id, s1.id, iface_n2, None)
 
 # Connect n3 to s1 with impairment configurations
 link_options = LinkOptions(
-    delay=100000,  # Note: CORE LinkOptions delay is measured in microseconds (100ms = 100000)
+    delay=100000,  # 100ms in microseconds
     loss=2         # Percentage
 )
-session.add_link(n3.id, s1.id, interface_one=iface_n3, options=link_options)
+session.add_link(n3.id, s1.id, iface_n3, None, link_options)
 
 # Fix 2: Start the simulation session
 session.instantiate()
