@@ -31,9 +31,9 @@ iface_n1 = ip_prefixes.create_iface(n1)
 iface_n2 = ip_prefixes.create_iface(n2)
 iface_n3 = ip_prefixes.create_iface(n3)
 
-# Connect hosts to switch using IDs and designated interfaces
-session.add_link(n1.id, s1.id, interface_one=iface_n1)
-session.add_link(n2.id, s1.id, interface_one=iface_n2)
+# Connect hosts to switch (Pass interface for host, None for switch)
+session.add_link(n1.id, s1.id, iface_n1, None)
+session.add_link(n2.id, s1.id, iface_n2, None)
 
 # Connect n3 to s1 with impairment configurations
 link_options = LinkOptions(
