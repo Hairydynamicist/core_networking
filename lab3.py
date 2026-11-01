@@ -20,11 +20,11 @@ session.set_state(EventTypes.CONFIGURATION_STATE)
 router_options = CoreNode.create_options()
 router_options.model = "router"
 
-controller = session.add_node(CoreNode, position=Position(x=100, y=50), options=router_options)
-n1 = session.add_node(DockerNode, position=Position(x=50, y=200))
-n2 = session.add_node(DockerNode, position=Position(x=150, y=200))
-n3 = session.add_node(DockerNode, position=Position(x=250, y=200))
-s1 = session.add_node(SwitchNode, position=Position(x=150, y=350))
+controller = session.add_node(CoreNode, name="controller", position=Position(x=100, y=50), options=router_options)
+n1 = session.add_node(DockerNode, name="n1", position=Position(x=50, y=200))
+n2 = session.add_node(DockerNode, name="n2", position=Position(x=150, y=200))
+n3 = session.add_node(DockerNode, name="n3", position=Position(x=250, y=200))
+s1 = session.add_node(SwitchNode, name="s1", position=Position(x=150, y=350))
 
 # Fix 4: Create virtual interface assignments for our L3 nodes
 iface_n1 = ip_prefixes.create_iface(n1)
