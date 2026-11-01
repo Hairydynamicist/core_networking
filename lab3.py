@@ -1,13 +1,21 @@
 """
 creating a basic three-node/one-switch topology using the pythonAPI
 """
-from core import Session
-from core.nodes import SwitchNode, CtrlNode
-from core.nodes import DockerNode
-from core.link import LinkOptions
+from core.emulator.coreemu import CoreEmu
+from core.emulator.enumerations import EventTypes
+from core.nodes.network import SwitchNode
+from core.nodes.docker import DockerNode
+from core.nodes.base import CoreNode, Position
 
-# create a session
-session = Session()
+# Initialize the emulator instance
+coreemu = CoreEmu()
+
+# Create a session
+session = coreemu.create_session()
+
+# Set it to configuration state so you can add nodes/links
+session.set_state(EventTypes.CONFIGURATION_STATE)
+
 
 # Add a controller
 controller = session.add_node(CtrlNode)
